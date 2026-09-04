@@ -1,0 +1,41 @@
+backend:
+  name: git
+  branch: main
+media_folder: "public/uploads"
+public_folder: "/uploads"
+collections:
+  - name: "services"
+    label: "Услуги"
+    folder: "content/services"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Price", name: "price", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Image", name: "image", widget: "image" }
+  - name: "courses"
+    label: "Курсы"
+    folder: "content/courses"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Price", name: "price", widget: "string" }
+      - { label: "Duration", name: "duration", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
+  - name: "teachers"
+    label: "Преподаватели"
+    folder: "content/teachers"
+    create: true
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Specialization", name: "specialization", widget: "string" }
+      - { label: "Bio", name: "bio", widget: "markdown" }
+      - { label: "Photo", name: "photo", widget: "image" }
+  - name: "portfolio"
+    label: "Портфолио"
+    folder: "content/portfolio"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "markdown" }
