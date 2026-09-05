@@ -56,8 +56,25 @@ export default async function ServiceDetail({ params }: { params: Promise<{ cate
         <section className="py-10 md:py-16">
           <div className="max-w-6xl mx-auto px-6">
             {showImage ? (
-              <div className="relative aspect-[3/4] md:aspect-[4/5] overflow-hidden mb-14 max-w-xl mx-auto">
-                <Image src={image as string} alt={title} fill className="object-cover" />
+              <div className="relative mb-14 h-[62vh] md:h-[72vh] overflow-hidden border border-border-soft bg-surface">
+                {/* Размытый фон из того же фото — без пустых полей по бокам */}
+                <Image
+                  src={image as string}
+                  alt=""
+                  aria-hidden="true"
+                  fill
+                  className="object-cover opacity-40 blur-2xl scale-110"
+                  sizes="100vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-primary/20 pointer-events-none" />
+                {/* Само фото — целиком, без обрезки */}
+                <Image
+                  src={image as string}
+                  alt={title}
+                  fill
+                  className="relative object-contain"
+                  sizes="(max-width: 768px) 100vw, 60vw"
+                />
               </div>
             ) : (
               <div className="cover-panel aspect-[3/4] md:aspect-[4/5] bg-surface border border-border-soft mb-14 max-w-xl mx-auto">
