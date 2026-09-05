@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { marked } from 'marked';
 import type { Service, Course, Teacher, PortfolioItem, Review, FaqItem } from '@/lib/types';
 
 const CONTENT_ROOT = path.join(process.cwd(), 'content');
@@ -51,7 +52,9 @@ export function getServiceCategoriesByContentSlug(): Map<string, ServiceCategory
 function parseMarkdown<T>(filePath: string): T {
   const file = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(file);
-  return { ...(data as Partial<T>), content } as T;
+  // Контент в файлах — markdown (###, списки), страницам нужен готовый HTML.
+  const html = marked.parse(content ?? '') as string;
+  return { ...(data as Partial<T>), content: html } as T;
 }
 
 function sortByOrder<T extends { order?: number }>(items: T[]): T[] {
