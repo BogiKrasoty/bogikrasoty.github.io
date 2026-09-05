@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next';
 import { getAllCourses, getAllPortfolio, getAllServices, getAllTeachers, getServiceCategories } from '@/lib/content';
 import { SITE_URL } from '@/lib/seo';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const categories = getServiceCategories();
   const services = getAllServices();

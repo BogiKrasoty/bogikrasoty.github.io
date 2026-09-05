@@ -8,6 +8,10 @@ import { getAllPortfolio } from '@/lib/content';
 import { hasPublicFile } from '@/lib/media';
 import { notFound } from 'next/navigation';
 
+export async function generateStaticParams() {
+  return (await getAllPortfolio()).map(i => ({ slug: i.slug }));
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const item = (await getAllPortfolio()).find(i => i.slug === slug);

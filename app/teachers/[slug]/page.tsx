@@ -9,6 +9,10 @@ import { getAllTeachers, getAllPortfolio } from '@/lib/content';
 import { hasPublicFile } from '@/lib/media';
 import { notFound } from 'next/navigation';
 
+export async function generateStaticParams() {
+  return (await getAllTeachers()).map(t => ({ slug: t.slug }));
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const teacher = (await getAllTeachers()).find(t => t.slug === slug);

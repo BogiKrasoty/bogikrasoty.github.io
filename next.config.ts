@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Чистый HTML/CSS/JS в out/ для GitHub Pages — без Node-сервера.
+  output: 'export',
+  images: { unoptimized: true },
 };
 
 export default nextConfig;
