@@ -422,6 +422,11 @@ content:
             label: Название
             type: string
             required: true
+          - name: titleLines
+            label: Разбивка названия по строкам
+            type: string
+            list: true
+            help: 'Необязательно. Например: «Мастер маникюра» / «и наращивания» / «ногтей».'
           - name: price
             label: Цена
             type: string

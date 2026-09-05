@@ -14,6 +14,7 @@ export interface Service {
 export interface Course {
   slug: string;
   title: string;
+  titleLines?: string[]; // ручная разбивка заголовка по строкам (hero)
   price?: string;
   duration?: string;
   description?: string;
