@@ -2,6 +2,7 @@
 title: Мужской маникюр
 price: "9 999 ₽"
 category: base
+image: "/images/courses/mens-manicure.webp"
 description: "Мужской маникюр с нуля: теория строения ногтя и практика — аккуратная форма, чистая кутикула, ухоженные руки без покрытия."
 features:
   - Теория + практика

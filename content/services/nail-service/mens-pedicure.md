@@ -1,7 +1,7 @@
 ---
 title: Мужской педикюр
 price: "9 999 ₽"
-image: "/images/courses-hero.webp"
+image: "/images/services/mens-pedicure.webp"
 description: "Комплексная педикюрная процедура для мужчин: аппаратная обработка, уход за кожей стоп и ногтями, покрытие."
 ---
 
