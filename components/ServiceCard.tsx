@@ -20,22 +20,32 @@ export default function ServiceCard({ href, title, description, price, image, ca
       href={href}
       className="group flex h-full flex-col overflow-hidden border border-border-soft bg-surface transition-colors duration-300 hover:border-accent/40"
     >
-      {/* Photo */}
-      <div className="relative aspect-[4/3] overflow-hidden bg-surface-light">
+      {/* Photo — вертикальное, целиком */}
+      <div className="relative h-72 overflow-hidden bg-surface-light md:h-80">
         {showImage ? (
-          <Image
-            src={image as string}
-            alt={title}
-            fill
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
+          <>
+            <Image
+              src={image as string}
+              alt=""
+              aria-hidden="true"
+              fill
+              className="object-cover opacity-40 blur-2xl scale-110"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+            <Image
+              src={image as string}
+              alt={title}
+              fill
+              className="relative object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/5 to-transparent pointer-events-none" />
+          </>
         ) : (
           <div className="cover-panel absolute inset-0">
             <span className="cover-monogram">{monogram}</span>
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/5 to-transparent pointer-events-none" />
         {categoryLabel && (
           <span className="absolute left-4 top-4 border border-white/10 bg-primary/70 px-3 py-2 text-[11px] uppercase tracking-[0.2em] text-text-warm backdrop-blur-sm">
             {categoryLabel}
