@@ -3,11 +3,9 @@ import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import Reveal from '@/components/Reveal';
 import Link from 'next/link';
-import Image from 'next/image';
 import type { Metadata } from 'next';
 import { getAllCourses } from '@/lib/content';
 import type { Course } from '@/lib/types';
-import { hasPublicFile } from '@/lib/media';
 import coursesData from '@/content/site/courses.json';
 
 export const metadata: Metadata = {
@@ -53,7 +51,6 @@ export default async function CoursesIndex() {
     .filter(group => group.courses.length > 0);
 
   const totalCourses = courses.length;
-  const showHeroImage = hasPublicFile(coursesData.pageHeader.image ?? null);
 
   return (
     <>
@@ -72,21 +69,6 @@ export default async function CoursesIndex() {
               : []),
           ]}
         />
-
-        {showHeroImage && (
-          <section className="py-8 md:py-12" aria-label="Обучение">
-            <div className="max-w-7xl mx-auto px-6">
-              <div className="relative aspect-[16/8] md:aspect-[21/9] overflow-hidden">
-                <Image
-                  src={coursesData.pageHeader.image as string}
-                  alt="Курсы мастеров красоты — практика и сертификат"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </section>
-        )}
 
         <section className="py-16 md:py-24" aria-label="Курсы">
           <div className="max-w-7xl mx-auto px-6">
