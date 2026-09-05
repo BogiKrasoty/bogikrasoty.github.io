@@ -142,40 +142,23 @@ export default async function CourseDetail({ params }: { params: Promise<{ categ
 
                   {showImage ? (
                     <>
+                      {/* Постер — как есть, со своим текстом: целиком, без подписей поверх */}
+                      <Image
+                        src={image as string}
+                        alt=""
+                        aria-hidden="true"
+                        fill
+                        className="object-cover rounded-lg opacity-30 blur-2xl scale-110"
+                        sizes="(max-width: 1024px) 100vw, 40vw"
+                      />
                       <Image
                         src={image as string}
                         alt={title}
                         fill
-                        className="object-cover rounded-lg"
+                        className="relative object-contain rounded-lg"
                         sizes="(max-width: 1024px) 100vw, 40vw"
                         priority
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/10 to-transparent rounded-lg pointer-events-none" />
-
-                      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-10">
-                        <p className="eyebrow text-accent mb-3">{categoryLabel}</p>
-                        <h2 className="font-display text-2xl md:text-3xl font-medium text-text leading-tight mb-4">
-                          {title}
-                        </h2>
-                        {features && features.length > 0 && (
-                          <ul className="space-y-3 text-sm md:text-base text-text-warm leading-relaxed max-w-xs">
-                            {features.slice(0, 4).map((feature, i) => (
-                              <li key={feature} className="flex items-start gap-3">
-                                <span className="font-display italic text-text-muted/50 text-sm shrink-0 mt-0.5">
-                                  0{i + 1}
-                                </span>
-                                <span>{feature}</span>
-                              </li>
-                            ))}
-                            {features.length > 4 && (
-                              <li className="flex items-start gap-3 text-accent">
-                                <span className="font-display italic text-text-muted/50 text-sm shrink-0 mt-0.5">+</span>
-                                <span>и ещё {features.length - 4} пунктов...</span>
-                              </li>
-                            )}
-                          </ul>
-                        )}
-                      </div>
                     </>
                   ) : (
                     <div className="cover-panel h-full w-full rounded-lg bg-surface border border-border-soft flex flex-col">
