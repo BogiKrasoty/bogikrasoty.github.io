@@ -1,0 +1,35 @@
+{
+  "city": "Москва",
+  "phone": "+7 (968) 307-82-57",
+  "email": "bud-bud777@mail.ru",
+  "address": "Москва, ул. Осенняя, 23",
+  "addressFull": "Москва, ул. Осенняя, д. 23, 10 этаж, офис 21",
+  "workingHours": "По записи, ежедневно 10:00–21:00",
+  "bookingLabel": "Записаться",
+  "bookingHref": "/contact",
+  "socials": [
+    {
+      "label": "VK",
+      "href": "https://vk.com/bogy_krasoty_school"
+    },
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/bogi_krasoty_school"
+    },
+    {
+      "label": "TikTok",
+      "href": "https://www.tiktok.com/@bogikrasoti"
+    }
+  ],
+  "maps": [
+    {
+      "label": "Яндекс Карты",
+      "href": "https://yandex.ru/maps/-/CTXwz0Yn"
+    },
+    {
+      "label": "2ГИС",
+      "href": "https://2gis.ru/moscow/firm/70000001113454257"
+    }
+  ],
+  "ymapsConstructor": "f726f22431d682d3f15ea624d99681a38dc939b48ef6d619a128454b7fcab794"
+}

@@ -1,0 +1,691 @@
+media:
+  - name: images
+    label: Изображения
+    input: public/images
+    output: /images
+    extensions: [jpg, jpeg, png, webp, avif]
+    rename: safe
+
+content:
+  - name: offices
+    label: Главная
+    type: group
+    items:
+      - name: home
+        label: Главная страница
+        type: file
+        path: content/site/home.json
+        format: json
+        fields:
+          - name: hero
+            label: Первый экран
+            type: object
+            fields:
+              - name: metaLeft
+                label: Метка слева
+                type: string
+              - name: metaRight
+                label: Метка справа
+                type: string
+              - name: eyebrow
+                label: Надзаголовок
+                type: string
+              - name: titleLine1
+                label: Строка заголовка 1
+                type: string
+              - name: titleLine2
+                label: Строка заголовка 2
+                type: string
+              - name: subtitle
+                label: Подзаголовок
+                type: text
+              - name: image
+                label: Картинка
+                type: image
+              - name: ctaPrimaryText
+                label: Текст кнопки «Записаться»
+                type: string
+              - name: ctaPrimaryHref
+                label: Ссылка (не менять)
+                type: string
+                readonly: true
+              - name: ctaSecondaryText
+                label: Текст второй кнопки
+                type: string
+              - name: ctaSecondaryHref
+                label: Ссылка второй кнопки (не менять)
+                type: string
+                readonly: true
+              - name: bottomLabel
+                label: Подпись внизу экрана
+                type: string
+          - name: marquee
+            label: Бегущая строка
+            type: string
+            list: true
+          - name: directions
+            label: Блок «Направления»
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: titleLine1
+                type: string
+              - name: titleLine2
+                type: string
+              - name: text
+                type: text
+          - name: services
+            label: Блок «Услуги»
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: title
+                type: string
+              - name: text
+                type: text
+              - name: btnText
+                type: string
+              - name: btnSolidText
+                type: string
+              - name: priceNote
+                label: Подпись к ценам
+                type: string
+              - name: note
+                label: Примечание
+                type: text
+          - name: courses
+            label: Блок «Обучение»
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: title
+                type: string
+              - name: btnText
+                type: string
+          - name: portfolio
+            label: Блок «Портфолио»
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: titleLine1
+                type: string
+              - name: titleLine2
+                type: string
+              - name: text
+                type: text
+              - name: btnText
+                type: string
+              - name: coverLinkText
+                label: Текст ссылки на работу
+                type: string
+          - name: reviews
+            label: Блок «Отзывы»
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: title
+                type: string
+              - name: text
+                type: text
+          - name: teachers
+            label: Блок «Мастера»
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: title
+                type: string
+              - name: text
+                type: text
+              - name: profileLabel
+                label: Текст ссылки на профиль
+                type: string
+              - name: allLabel
+                label: Текст ссылки на команду
+                type: string
+          - name: faq
+            label: Блок «Вопросы и ответы»
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: titleLine1
+                type: string
+              - name: titleLine2
+                type: string
+              - name: text
+                type: text
+              - name: btnText
+                type: string
+          - name: cta
+            label: Блок «Запись»
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: titleLine1
+                type: string
+              - name: titleLine2
+                type: string
+              - name: text
+                type: text
+              - name: btnText
+                type: string
+              - name: footnote
+                type: string
+      - name: about
+        label: О нас
+        type: file
+        path: content/site/about.json
+        format: json
+        fields:
+          - name: pageHeader
+            label: Шапка страницы
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: titleLine1
+                type: string
+              - name: titleLine2
+                type: string
+              - name: description
+                type: text
+              - name: metaCity
+                label: Город
+                type: string
+              - name: metaReception
+                label: Приём
+                type: string
+          - name: story
+            label: История
+            type: object
+            fields:
+              - name: title
+                type: string
+              - name: paragraphs
+                label: Абзацы
+                type: text
+                list: true
+          - name: stats
+            label: Цифры
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+            fields:
+              - name: value
+                label: Значение
+                type: string
+              - name: label
+                label: Подпись
+                type: string
+          - name: mission
+            label: Миссия
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: text
+                type: text
+          - name: values
+            label: Ценности
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: title
+                type: string
+              - name: items
+                label: Пункты
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{name}"
+                fields:
+                  - name: name
+                    label: Название
+                    type: string
+                  - name: text
+                    label: Описание
+                    type: text
+          - name: visit
+            label: Приглашение в конце
+            type: object
+            fields:
+              - name: title
+                type: string
+              - name: ctaPrimaryText
+                label: Текст кнопки
+                type: string
+              - name: ctaSecondaryText
+                label: Текст второй кнопки
+                type: string
+
+  - name: services
+    label: Услуги
+    type: group
+    items:
+      - name: directions
+        label: Направления
+        type: collection
+        path: content/directions
+        filename: "{slug}.md"
+        fields:
+          - name: title
+            label: Название
+            type: string
+            required: true
+          - name: slug
+            label: Адрес (латиницей)
+            type: string
+            options:
+              pattern: '^[a-z][a-z0-9-]*$'
+            help: "Латинские буквы без пробелов, например: nails"
+          - name: contentSlug
+            label: Привязка к услугам (не менять)
+            type: string
+            readonly: true
+          - name: description
+            label: Описание
+            type: text
+            required: true
+          - name: order
+            label: Порядок
+            type: number
+            default: 999
+          - name: published
+            label: Показать на сайте
+            type: boolean
+            default: true
+      - name: nail-service
+        label: Ногтевой сервис
+        type: collection
+        path: content/services/nail-service
+        filename: "{slug}.md"
+        fields: &service-fields
+          - name: title
+            label: Название
+            type: string
+            required: true
+          - name: price
+            label: Цена
+            type: string
+            help: 'Например: «от 2500 ₽». Если точной цены нет — укажите «по запросу».'
+          - name: duration
+            label: Длительность
+            type: string
+            help: 'Например: «60 минут».'
+          - name: description
+            label: Описание
+            type: text
+            required: true
+          - name: image
+            label: Фото услуги
+            type: image
+            help: 'Иллюстрация к странице услуги (широкая, webp). Если не задано — используется фирменная обложка.'
+          - name: category
+            label: Категория (не менять)
+            type: string
+            readonly: true
+          - name: order
+            label: Порядок
+            type: number
+            default: 999
+          - name: published
+            label: Показать на сайте
+            type: boolean
+            default: true
+          - name: body
+            label: Текст страницы
+            type: text
+            hidden: true
+      - name: vizazh-services
+        label: Визаж
+        type: collection
+        path: content/services/vizazh
+        filename: "{slug}.md"
+        fields: *service-fields
+      - name: brow-services
+        label: Брови
+        type: collection
+        path: content/services/brow
+        filename: "{slug}.md"
+        fields: *service-fields
+      - name: lashes-services
+        label: Ресницы
+        type: collection
+        path: content/services/lashes
+        filename: "{slug}.md"
+        fields: *service-fields
+      - name: pmu-services
+        label: Перманентный макияж
+        type: collection
+        path: content/services/pmu
+        filename: "{slug}.md"
+        fields: *service-fields
+      - name: tattoo-services
+        label: Тату
+        type: collection
+        path: content/services/tattoo
+        filename: "{slug}.md"
+        fields: *service-fields
+
+  - name: courses
+    label: Обучение
+    type: group
+    items:
+      - name: courses-page
+        label: Страница «Обучение» (заголовок и картинка)
+        type: file
+        path: content/site/courses.json
+        format: json
+        fields:
+          - name: pageHeader
+            label: Шапка страницы
+            type: object
+            fields:
+              - name: eyebrow
+                label: Надзаголовок
+                type: string
+              - name: titleLine1
+                label: Строка заголовка 1
+                type: string
+              - name: titleLine2
+                label: Строка заголовка 2
+                type: string
+              - name: description
+                label: Подзаголовок
+                type: text
+              - name: price
+                label: Цена (подпись под шапкой)
+                type: string
+                help: 'Например: 9 999 ₽. Показывается в шапке страницы «обучения».'
+              - name: image
+                label: Картинка
+                type: image
+                help: 'Иллюстрация под шапкой страницы. Широкая, лучше webp.'
+      - name: base-courses
+        label: Базовые курсы
+        type: collection
+        path: content/courses/base
+        filename: "{slug}.md"
+        fields: &course-fields
+          - name: title
+            label: Название
+            type: string
+            required: true
+          - name: price
+            label: Цена
+            type: string
+            help: 'Например: «120000 ₽».'
+          - name: duration
+            label: Длительность
+            type: string
+            help: 'Например: «14 дней».'
+          - name: category
+            label: Категория (не менять)
+            type: string
+            readonly: true
+          - name: description
+            label: Описание
+            type: text
+            required: true
+          - name: image
+            label: Фото курса
+            type: image
+            help: 'Иллюстрация к странице курса (широкая, webp). Если не задано — используется фирменная обложка.'
+          - name: features
+            label: Что входит
+            type: string
+            list: true
+          - name: order
+            label: Порядок
+            type: number
+            default: 999
+          - name: published
+            label: Показать на сайте
+            type: boolean
+            default: true
+          - name: body
+            label: Текст страницы
+            type: text
+            hidden: true
+      - name: advanced-courses
+        label: Повышение квалификации
+        type: collection
+        path: content/courses/advanced
+        filename: "{slug}.md"
+        fields: *course-fields
+      - name: beauty-courses
+        label: Визаж, брови, ресницы
+        type: collection
+        path: content/courses/beauty
+        filename: "{slug}.md"
+        fields: *course-fields
+      - name: permanent-courses
+        label: Перманентный макияж
+        type: collection
+        path: content/courses/permanent
+        filename: "{slug}.md"
+        fields: *course-fields
+      - name: tattoo-courses
+        label: Художественная татуировка
+        type: collection
+        path: content/courses/tattoo
+        filename: "{slug}.md"
+        fields: *course-fields
+
+  - name: team
+    label: Команда
+    type: collection
+    path: content/teachers
+    filename: "{slug}.md"
+    fields:
+      - name: name
+        label: Имя и фамилия
+        type: string
+        required: true
+      - name: specialization
+        label: Специализация
+        type: string
+        required: true
+      - name: photo
+        label: Фото
+        type: image
+        help: 'Фото лица, лучше квадратное: /images/teachers/…'
+      - name: bio
+        label: О мастере
+        type: text
+        required: true
+      - name: socials
+        label: Соцсети
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - name: label
+            label: Сеть
+            type: select
+            options:
+              values: [VK, Instagram, Telegram, TikTok, WhatsApp]
+          - name: href
+            label: Ссылка
+            type: string
+      - name: order
+        label: Порядок
+        type: number
+        default: 999
+      - name: published
+        label: Показать на сайте
+        type: boolean
+        default: true
+
+  - name: portfolio
+    label: Портфолио
+    type: collection
+    path: content/portfolio
+    filename: "{slug}.md"
+    fields:
+      - name: title
+        label: Работа
+        type: string
+        required: true
+      - name: category
+        label: Направление
+        type: select
+        options:
+          values:
+            - Маникюр
+            - Визаж
+            - Брови
+            - Ресницы
+            - Перманентный макияж
+      - name: teacher
+        label: Мастер
+        type: string
+      - name: description
+        label: Описание
+        type: text
+      - name: image
+        label: Фото работы
+        type: image
+      - name: order
+        label: Порядок
+        type: number
+        default: 999
+      - name: published
+        label: Показать на сайте
+        type: boolean
+        default: true
+
+  - name: reviews
+    label: Отзывы
+    type: collection
+    path: content/reviews
+    filename: "{slug}.md"
+    fields:
+      - name: name
+        label: Имя клиента
+        type: string
+        required: true
+      - name: service
+        label: Услуга
+        type: string
+        help: 'Что получал клиент, например «Маникюр и укрепление».'
+      - name: text
+        label: Отзыв
+        type: text
+        required: true
+      - name: order
+        label: Порядок
+        type: number
+        default: 999
+      - name: published
+        label: Показать на сайте
+        type: boolean
+        default: true
+
+  - name: faq
+    label: Вопросы и ответы
+    type: collection
+    path: content/faq
+    filename: "{slug}.md"
+    fields:
+      - name: question
+        label: Вопрос
+        type: string
+        required: true
+      - name: answer
+        label: Ответ
+        type: text
+        required: true
+      - name: order
+        label: Порядок
+        type: number
+        default: 999
+      - name: published
+        label: Показать на сайте
+        type: boolean
+        default: true
+
+  - name: contacts
+    label: Контакты
+    type: file
+    path: content/site/contacts.json
+    format: json
+    fields:
+      - name: city
+        label: Город
+        type: string
+      - name: phoneDisplay
+        label: Телефон (как показывается)
+        type: string
+      - name: email
+        label: Почта
+        type: string
+      - name: address
+        label: Адрес (коротко)
+        type: string
+      - name: addressFull
+        label: Адрес (полный)
+        type: text
+      - name: workingHours
+        label: Часы работы
+        type: string
+        help: 'Показывается на странице контактов.'
+      - name: bookingLabel
+        label: Текст кнопки «Записаться»
+        type: string
+        help: 'Кнопка записи в шапке сайта.'
+      - name: bookingHref
+        label: Ссылка на запись
+        type: string
+        help: 'Внутренний адрес страницы записи, например: /contact'
+      - name: socials
+        label: Соцсети
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - name: label
+            label: Сеть
+            type: select
+            options:
+              values: [VK, Instagram, Telegram, TikTok, WhatsApp]
+          - name: href
+            label: Ссылка
+            type: string
+      - name: maps
+        label: Карты
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - name: label
+            label: Сервис
+            type: string
+          - name: href
+            label: Ссылка
+            type: string
+          - name: title
+            label: Подпись
+            type: string
+      - name: ymapsConstructor
+        label: Ключ Яндекс Карт (не менять)
+        type: string
+        readonly: true
+        help: 'Используется для встроенной карты на странице контактов.'
