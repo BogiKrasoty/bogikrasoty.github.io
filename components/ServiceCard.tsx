@@ -21,7 +21,7 @@ export default function ServiceCard({ href, title, description, price, image, ca
       className="group flex h-full flex-col overflow-hidden border border-border-soft bg-surface transition-colors duration-300 hover:border-accent/40"
     >
       {/* Photo — крупно, вертикальный кадр на всю карточку */}
-      <div className="relative aspect-[3/4] overflow-hidden bg-surface-light">
+      <div className="relative aspect-[2/3] overflow-hidden bg-surface-light">
         {showImage ? (
           <>
             <Image
