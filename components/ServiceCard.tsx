@@ -20,23 +20,15 @@ export default function ServiceCard({ href, title, description, price, image, ca
       href={href}
       className="group flex h-full flex-col overflow-hidden border border-border-soft bg-surface transition-colors duration-300 hover:border-accent/40"
     >
-      {/* Photo — вертикальное, целиком */}
-      <div className="relative h-72 overflow-hidden bg-surface-light md:h-80">
+      {/* Photo — крупно, вертикальный кадр на всю карточку */}
+      <div className="relative aspect-[3/4] overflow-hidden bg-surface-light">
         {showImage ? (
           <>
             <Image
               src={image as string}
-              alt=""
-              aria-hidden="true"
-              fill
-              className="object-cover opacity-40 blur-2xl scale-110"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            />
-            <Image
-              src={image as string}
               alt={title}
               fill
-              className="relative object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/5 to-transparent pointer-events-none" />
